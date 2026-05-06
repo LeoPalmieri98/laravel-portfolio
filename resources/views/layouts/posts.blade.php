@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>
+        <h1 class="mb-4 my-3">
             @yield('title')
         </h1>
         <p>
