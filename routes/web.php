@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\DashboardController;
-use App\Http\Controllers\PostController;
+use App\Http\Controllers\Admin\PostController as AdminPostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,7 +33,8 @@ Route::middleware(["auth", "verified"])
             ->name("profile");
     });
 
-Route::resource("posts", PostController::class);
+Route::resource("posts", AdminPostController::class)
+    ->middleware(["auth", "verified"]);
 
 
 require __DIR__ . '/auth.php';
