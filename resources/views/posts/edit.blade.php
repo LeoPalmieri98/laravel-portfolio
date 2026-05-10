@@ -17,7 +17,7 @@
         <input type="text" id="categoria"  name="category" value="{{ $post->category}}">
     </div>
     <div class="mt-3">
-        <textarea type="text" id="contenuto"  name="content"  rows="5">value="{{ $post->content}}"</textarea>
+        <textarea type="text" id="contenuto"  name="content"  rows="5"> {{ $post->content}}"</textarea>
     </div>
 
     <input type="submit" value="Save">

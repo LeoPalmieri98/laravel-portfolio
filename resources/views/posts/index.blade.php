@@ -29,7 +29,7 @@
                         <td>{{ $post->category }}</td>
                         <td>{{ ($post->content) }}</td>
                         <td>
-                           <a href="{{ route("posts.show", $post->id)}}">Visualizza</a>
+                           <a class="btn btn-dark" href="{{ route("posts.show", $post->id)}}">Visualizza</a>
                         </td>
                     </tr>
                 @endforeach
