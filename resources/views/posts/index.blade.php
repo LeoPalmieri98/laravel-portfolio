@@ -36,4 +36,11 @@
 
             </tbody>
         </table>
+
+</div>
+<div class="d-flex py-4 gap-3">
+    <a class="btn btn-primary" href="{{route("posts.create", $post)}}">Aggiungi un post</a>
+
+</div>
+
 @endsection
