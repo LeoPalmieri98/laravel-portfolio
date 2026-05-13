@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -22,7 +23,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view("posts/create");
+
+        $types = Type::all();
+        return view("posts/create", compact("types"));
     }
 
 
@@ -35,7 +38,7 @@ class PostController extends Controller
         $newPost = new Post();
         $newPost->title = $data["title"];
         $newPost->author = $data["author"];
-        $newPost->category = $data["category"];
+        $newPost->type_id = $data["type_id"];
         $newPost->content = $data["content"];
         $newPost->save();
 
@@ -55,7 +58,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view("posts.edit", compact("post"));
+        $types = Type::all();
+        return view("posts.edit", compact("post", "types"));
     }
 
     /**
@@ -66,7 +70,7 @@ class PostController extends Controller
         $data = $request->all();
         $post->title = $data["title"];
         $post->author = $data["author"];
-        $post->category = $data["category"];
+        $post->type_id = $data["type_id"];
         $post->content = $data["content"];
         $post->update();
 

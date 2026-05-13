@@ -14,7 +14,11 @@
         <input type="text" id="autore"  name="author" value="{{ $post->author}}" >
     </div>
     <div class="mt-3">
-        <input type="text" id="categoria"  name="category" value="{{ $post->category}}">
+               <select name="type_id" id="type_id" >
+            @foreach ($types as $type)
+            <option value="{{$type->id}}"{{$post->type_id == $type->id ? "selected" : ""}}>{{$type->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="mt-3">
         <textarea type="text" id="contenuto"  name="content"  rows="5"> {{ $post->content}}"</textarea>

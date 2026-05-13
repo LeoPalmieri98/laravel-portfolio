@@ -26,7 +26,7 @@
                         <th scope="row">{{ $post->id }}</th>
                         <td>{{ $post->title }}</td>
                         <td>{{ $post->author }}</td>
-                        <td>{{ $post->category }}</td>
+                        <td>{{ $post->type->name }}</td>
                         <td>{{ ($post->content) }}</td>
                         <td>
                            <a class="btn btn-dark" href="{{ route("posts.show", $post->id)}}">Visualizza</a>

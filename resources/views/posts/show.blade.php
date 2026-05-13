@@ -19,7 +19,7 @@
             <th scope="col">ID</th>
             <th scope="col">Titolo</th>
             <th scope="col">Autore</th>
-            <th scope="col">Categoria</th>
+            <th scope="col">Tipo</th>
             <th scope="col">Contenuto</th>
         </tr>
     </thead>
@@ -28,7 +28,7 @@
             <th scope="row">{{ $post->id }}</th>
             <td>{{ $post->title }}</td>
             <td>{{ $post->author }}</td>
-            <td>{{ $post->category }}</td>
+            <td>{{ $post->type->name }}</td>
             <td>{{ ($post->content) }}</td>
         </tr>
     </tbody>

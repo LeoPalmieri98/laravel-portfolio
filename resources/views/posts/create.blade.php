@@ -13,7 +13,11 @@
         <input type="text" id="autore"  name="author" placeholder="Autore" >
     </div>
     <div class="mt-3">
-        <input type="text" id="categoria"  name="category" placeholder="Categoria">
+        <select name="type_id" id="type_id" >
+            @foreach ($types as $type)
+            <option value="{{$type->id}}">{{$type->name}}</option>
+            @endforeach
+        </select>
     </div>
     <div class="mt-3">
         <textarea type="text" id="contenuto"  name="content" placeholder="Contenuto" rows="5"></textarea>
