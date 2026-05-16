@@ -50,6 +50,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        dd($post->technologies);
         return view("posts/show", compact("post"));
     }
 
