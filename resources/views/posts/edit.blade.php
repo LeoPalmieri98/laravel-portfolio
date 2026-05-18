@@ -20,6 +20,14 @@
             @endforeach
         </select>
     </div>
+
+    <div class="my-3">
+        @foreach( $technologies as $technology)
+        <input  type="checkbox" name="technologies[]" id="{{$technology->id}}" value="{{$technology->id}}" {{$post->technologies->contains($technology->id) ? "checked" : ""}}>
+        <label for="{{$technology->id}}">{{$technology->name}}</label>
+        @endforeach
+    </div>
+
     <div class="mt-3">
         <textarea type="text" id="contenuto"  name="content"  rows="5"> {{ $post->content}}"</textarea>
     </div>

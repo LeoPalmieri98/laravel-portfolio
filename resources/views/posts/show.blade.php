@@ -34,6 +34,14 @@
     </tbody>
 </table>
 
+<h3>Tecnologie usate:</h3>
+<div>
+    @foreach ($post->technologies as $technology)
+        <span class="badge" style="background-color: {{$technology->color}}">{{ $technology->name }}</span>
+    @endforeach
+</div>
+
+
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

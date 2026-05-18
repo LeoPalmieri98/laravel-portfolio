@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Post;
+use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
 
@@ -24,8 +25,10 @@ class PostController extends Controller
     public function create()
     {
 
+
         $types = Type::all();
-        return view("posts/create", compact("types"));
+        $technologies = Technology::all();
+        return view("posts/create", compact("types", "technologies"));
     }
 
 
@@ -42,6 +45,10 @@ class PostController extends Controller
         $newPost->content = $data["content"];
         $newPost->save();
 
+        if ($request->has("technologies")) {
+            $newPost->technologies()->attach($data["technologies"]);
+        }
+
         return redirect()->route("posts.show", $newPost);
     }
 
@@ -50,7 +57,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        dd($post->technologies);
+        //dd($post->technologies);
         return view("posts/show", compact("post"));
     }
 
@@ -60,7 +67,8 @@ class PostController extends Controller
     public function edit(Post $post)
     {
         $types = Type::all();
-        return view("posts.edit", compact("post", "types"));
+        $technologies = Technology::all();
+        return view("posts.edit", compact("post", "types", "technologies"));
     }
 
     /**
@@ -74,6 +82,13 @@ class PostController extends Controller
         $post->type_id = $data["type_id"];
         $post->content = $data["content"];
         $post->update();
+
+        if ($request->has("technologies")) {
+            $post->technologies()->sync($data["technologies"]);
+        } else {
+            $post->technologies()->detach();
+        }
+
 
         return redirect()->route("posts.show", $post);
     }

@@ -19,6 +19,14 @@
             @endforeach
         </select>
     </div>
+    <div class="my-3">
+        @foreach( $technologies as $technology)
+        <input  type="checkbox" name="technologies[]" id="{{$technology->id}}" value="{{$technology->id}}">
+        <label for="{{$technology->id}}">{{$technology->name}}</label>
+        @endforeach
+    </div>
+
+
     <div class="mt-3">
         <textarea type="text" id="contenuto"  name="content" placeholder="Contenuto" rows="5"></textarea>
     </div>
