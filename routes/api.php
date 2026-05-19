@@ -10,3 +10,7 @@ Route::get('/user', function (Request $request) {
 
 
 Route::get("posts", [ProjectController::class, "index"]);
+
+
+
+Route::get("posts/{post}", [ProjectController::class, "show"]);
